@@ -16,19 +16,19 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework import routers
-#from tutorial.quickstart import views as views1
+from tutorial.quickstart import views as views1
 from snippets import views as views
 
-"""
+
 router = routers.DefaultRouter()
 router.register(r'users', views1.UserViewSet)
 router.register(r'groups', views1.GroupViewSet)
 admin.autodiscover()
-"""
+
 
 
 urlpatterns = [
-    #url(r'^', include(router.urls)),
+    url(r'^', include(router.urls)),
     url(r'^snippets/$', views.snippet_list),
     url(r'^snippets/(?P<pk>[0-9]+)$', views.snippet_detail),
     url(r'^api-auth/', include('rest_framework.urls',namespace='rest-framework')),
