@@ -20,11 +20,12 @@ from tutorial.quickstart import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-routers.register(r'groups', views.GroupViewSet)
+router.register(r'groups', views.GroupViewSet)
+admin.autodiscover()
 
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest-framework.urls',namespace='rest-framework')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^api-auth/', include('rest_framework.urls',namespace='rest-framework')),
+    url(r'^admin/', include(admin.site.urls))
 ]
