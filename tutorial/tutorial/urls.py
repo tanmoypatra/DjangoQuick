@@ -18,8 +18,6 @@ from django.contrib import admin
 from rest_framework import routers
 from tutorial.quickstart import views as views1
 from snippets import views as views
-from rest_framework.urlpatterns import format_suffix_patterns
-
 
 router = routers.DefaultRouter()
 router.register(r'users', views1.UserViewSet)
@@ -31,9 +29,9 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^snippets/$', views.snippet_list),
-    url(r'^snippets/(?P<pk>[0-9]+)$', views.snippet_detail),
+    url(r'^snippets/(?P<pk>[0-9]+)/$', views.snippet_detail),
     url(r'^api-auth/', include('rest_framework.urls',namespace='rest-framework')),
     url(r'^admin/', include(admin.site.urls))
 ]
 
-urlpatterns = format_suffix_patterns(urlpatterns)
+#urlpatterns = format_suffix_patterns(urlpatterns)
