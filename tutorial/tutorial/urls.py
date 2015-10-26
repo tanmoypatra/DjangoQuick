@@ -21,6 +21,8 @@ from tutorial.quickstart import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'snippets/$', views.snippet_list)
+router.register(r'snippets/(?P<pk>[0-9]+)/$',views.snippet_detail)
 admin.autodiscover()
 
 
