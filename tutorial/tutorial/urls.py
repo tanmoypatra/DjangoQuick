@@ -18,6 +18,7 @@ from django.contrib import admin
 from rest_framework import routers
 from tutorial.quickstart import views as views1
 from snippets import views as views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 
 router = routers.DefaultRouter()
@@ -34,3 +35,5 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls',namespace='rest-framework')),
     url(r'^admin/', include(admin.site.urls))
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
